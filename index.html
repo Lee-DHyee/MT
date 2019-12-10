@@ -1,132 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<style>
-        *{margin: 0;padding: 0;}
-        body{
-            margin: auto;
-        }
-        .pp tr td:nth-child(1){
-            background-image: url(img/ceiling-logo2.png);
-            background-repeat: no-repeat;
-            background-position: 200px 5px;
-           
-        }
-        .pp tr td:nth-child(2){
-            background-image: url(img/header.png);
-            background-repeat: no-repeat;
-            background-position: 0px -34px;
-        }
-        .pp tr td:nth-child(2) font{
-            padding: 0 40px;
-            vertical-align: 4px;
-        }
-        .pp tr td:nth-child(2) font:nth-child(2){
-            font-size: 20px;
-            padding: 0 170px
-        }
-        #q{
-            padding: 25px 0;
-            font-weight: bold;
-            color:blue;
-            font-size: 17px; 
-        }
-        #q .w{
-            color: black;
-        }
-        #tabT{width: 1200px;text-align: center;}
-        #tabT th{background-color: #87CEEB;}
-        #numA{float: right;font-weight: normal;}
-        #clearA{float: right;}
-        #divT{width:1200px ;margin: auto;display: none;}
-        .addN{width: 20px;background-color: #E4E4E4;}
-        .numN{width: 40px;background-color: #E4E4E4;text-align: center;}
-        .minN{width: 20px;background-color: #E4E4E4;}        
-    </style>
-</head>
-<body bgcolor="#F4F4F4">
-    <table bgcolor="#FED61B" width="100%" height="50px" align="center" class="pp">
-        <tr>
-            <td width="500px"></td>
-            <td><font size="2" color="#747474">搜索商家、美食</font>
-            <font color="#FFFFFF">搜索</font>
-            </td>
-        </tr>
-    </table>
-    <center id="q" onclick="payC()">我的购物车<span class="w">(</span><font color="red"><span id="num">0</span></font><span class="w">)</span></center>
-    <table  width="990px" align="center" bgcolor="white" style="margin: auto;" id="tabO">
-        <tr height="200px">
-            <td  colspan="2" align="center"> <img src="img/1cde.jpg" alt="" height="160px"></td>
-            <td  colspan="2" align="center"> <img src="img/3a31d.jpg" alt="" height="160px"></td>
-            <td  colspan="2" align="center"> <img src="img/9ecd.jpg" alt="" height="160px"></td>
-            <td  colspan="2" align="center"> <img src="img/d64c553.jpg" alt="" height="160px"></td>
-  
-        </tr>
-        <tr  style="font-weight:bold;" height="35px">
-            <td style="padding: 0 11px">A米汉堡</td>
-            <td align="right" style="padding: 0 11px">16元/份</td>
-            <td style="padding: 0 11px">杨记下厨</td>
-            <td align="right" style="padding: 0 11px">17.5元/份</td>
-            <td align="right">杨铭宇黄焖鸡米饭</td>
-            <td align="right" style="padding: 0 11px">18元/份</td>
-            <td style="padding: 0 14px">烤肉拌饭</td>
-            <td align="right" style="padding: 0 11px">18元每份</td>
-        </tr>
-        <tr   style="color: #FEAC26;font-size:12px;">
-            <td></td>
-            <td align="right" style="padding: 0 11px">月销2313份</td>
-            <td></td>
-            <td align="right" style="padding: 0 11px">月销2455份</td>
-            <td></td>
-            <td align="right" style="padding: 0 11px">月销3455份</td>
-            <td></td>
-            <td align="right" style="padding: 0 11px">月销23435份</td>
-        </tr>
-        <tr  style="color: #9FA0A2;font-size:12px;" height="22px">
-            <td style="padding: 0 11px">起送$10<span style="padding: 0 10px">免配送费</span></td>
-            <td align="right" style="padding: 0 11px">45分钟</td>
-            <td style="padding: 0 11px">起送$10<span style="padding: 0 10px">免配送费</span></td>
-            <td align="right" style="padding: 0 11px">32分钟</td>
-            <td style="padding: 0 11px">起送$10<span style="padding: 0 10px">免配送费</span></td>
-            <td align="right" style="padding: 0 11px">20分钟</td>
-            <td style="padding: 0 13px">起送$10<span style="padding: 0 10px">免配送费</span></td>
-            <td align="right" style="padding: 0 11px">33分钟</td>
-        </tr>
-        <tr>
-            <td colspan="2" align="right" style="padding: 0 11px"><input type="button" value="加入购物车" onclick="addO('A米汉堡','16元/份')"></td>
-            <td colspan="2" align="right" style="padding: 0 11px"><input type="button" value="加入购物车" onclick="addO('杨记下厨','17.5元/份')"></td>
-            <td colspan="2" align="right" style="padding: 0 11px"><input type="button" value="加入购物车" onclick="addO('杨铭宇黄焖鸡米饭','18元/份')"></td>
-            <td colspan="2" align="right" style="padding: 0 11px"><input type="button" value="加入购物车" onclick="addO('烤肉拌饭','18元/份')"></td>
-        </tr>
-        <tr>
-            <td colspan="8"><hr></td>
-        </tr>
-    </table>
-    <div id="divT">
-        <table id="tabT" cellspacing="0">
-        <tr>
-            <th>
-                全选
-                <input type="checkbox" name="check" id="checkAll"  onclick="allCheck(this)">
-            </th>
-            <th>菜品</th>
-            <th>价格 ( 元/份 )</th>
-            <th>数量</th>
-            <th>操作</th>
-        </tr>
-    </table>
-    <input type="button" value="全部删除" onclick="dele()" id="deleAll"> 
-    <input type="button" value="结算" id="clearA" onclick="clearAu()">
-    <b id="numA">合计¥ <span id="sumA">0</span></b><br>
-    <input type="button" value="继续点餐" onclick="retu()">
-    </div>
-    
-<script src="js/index.js"></script>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>点餐</title>
+  <style>
+* {margin: 0;padding: 0;}
+i{font-style: normal;}
+ul ,li {list-style: none;}
+body {background-color: #f5f5f5;}
+nav {height: 50px;padding-top: 8px;background: url('../img/ceiling-logo2.png') 100px no-repeat #ffd705;}
+nav input {width: 280px;height: 38px;background-color: transparent;border: 2px solid #6b450a;border-radius: 19px 0 0 19px;margin-left: 450px;padding-left: 40px;background: url('../img/magnifier.png') 15px 10px no-repeat;outline: 0;}
+nav button {
+  display: inline-block;
+  height: 42px;
+  width: 100px;
+  line-height: 42px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6b450a;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+  position: relative; 
+  top: 1px;
+  outline: 0;
+}
 
+#myCart {
+  display: block;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+#myCart i {
+  color: red;
+}
+
+#foods {
+  width: 1200px;
+  height: 330px;
+  margin: 0 auto;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#foods img {
+  width: 280px;
+  margin: 10px;
+}
+
+#foods span {
+  margin-left: 10px;
+}
+#foods span:nth-of-type(2) {
+  float: right;
+  margin-right: 15px;
+}
+
+#foods p {
+  text-align: right;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #ffd705;
+}
+
+#foods span:nth-of-type(n+3) {
+  color: #aaa;
+  font-size: 14px;
+}
+#foods span:nth-last-of-type(1) {
+  margin-left: 85px;
+}
+#foods button {
+  float: right;
+  margin-right: 15px;
+}
+
+/*  购物车 */
+
+#cart {
+  width: 1200px;
+  margin: 10px auto;
+  display: none;
+}
+table {
+  width: 1200px;
+  background-color: #fff;
+  border-collapse: collapse;
+  border-bottom: 1px solid #999;
+}
+
+table tr:nth-of-type(1) {
+  background-color: skyblue;
+}
+
+table tr {
+  text-align: center;
+}
+
+#cart ul {
+  width: 1200px;
+}
+
+#cart ul li {
+  float: left;
+}
+
+#cart ul li:nth-last-of-type(1) {
+  float: right;
+}
+
+.cal {
+  overflow: hidden;
+}
+.jian{width: 20px;}
+.jia{width: 20px;}
+  </style>
+
+</head>
+<body>
+  <nav>
+    <input type="text" placeholder="搜索商家、美食"><button>搜索</button>
+  </nav>
+  <span id="myCart">我的购物车(<i>0</i>)</span>
+  <ul id="foods">
+    <li>
+      <!-- <img src="./img/food1.jpg" alt="">
+      <span>A米汉堡</span>
+      <span>16元/份</span>
+      <p>月销8148单</p>
+      <span>起送￥10元</span><span>免费送费</span><span>45分钟</span>
+      <button>加入购物车</button> -->
+    </li>
+    <li>
+      <!-- <img src="./img/food2.jpg" alt="">
+      <span>杨记小厨</span>
+      <span>17.5元/份</span>
+      <p>月销8148单</p>
+      <span>起送￥10元</span><span>免费送费</span><span>45分钟</span>
+      <button>加入购物车</button> -->
+    </li>
+    <li>
+      <!-- <img src="./img/food3.jpg" alt="">
+      <span>杨铭宇黄焖鸡米饭</span>
+      <span>18元/份</span>
+      <p>月销8148单</p>
+      <span>起送￥10元</span><span>免费送费</span><span>45分钟</span>
+      <button>加入购物车</button> -->
+    </li>
+    <li>
+      <!-- <img src="./img/food4.jpg" alt="">
+      <span>烤肉拌饭</span>
+      <span>18元/份</span>
+      <p>月销8148单</p>
+      <span>起送￥10元</span><span>免费送费</span><span>45分钟</span>
+      <button>加入购物车</button> -->
+    </li>
+  </ul>
+  <div id="cart">
+  <table>
+    <tr>
+      <th>全选<input type="checkbox" id="all"></th>
+      <th>菜品</th>
+      <th>价格（元/份）</th>
+      <th>数量</th>
+      <th>操作</th>
+    </tr>
+    
+  </table>
+  <ul class="cal">
+    <li><button id="delAll">全部删除</button></li>
+    <li><span>合计￥<i id="total">0</i></span>
+    <button id="account">结算</button></li>
+  </ul>
+  <button id="toFoodView">继续点餐</button>
+  <div class="msg"></div>
+  </div>
+  <script src="jquery-3.2.1.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
